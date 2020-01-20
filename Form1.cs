@@ -12,16 +12,23 @@ namespace DgsDayCounter
 {
     public partial class Form1 : Form
     {
-        DateTime _goalDate = new DateTime(2020, 7, 5);
+        DateTime _goalDate = new DateTime(2020, 7, 5,10,15,00);
         public Form1()
         {
             InitializeComponent();
+            lblDate.Text = _goalDate.ToString();
         }
 
         private void tmr_Tick(object sender, EventArgs e)
         {
-            lblRemain.Text = $"Remain Day: {DateTime.Now.Subtract(_goalDate).ToString("dd")}";
-            lblHour.Text = $"Remain Hour: {_goalDate.Subtract(DateTime.Now).TotalHours.ToString("#.##")}";
+            var now = DateTime.Now;
+            var day= _goalDate.Subtract(now).Days.ToString("##");
+            var hour = _goalDate.Subtract(now).Hours.ToString("##");
+            var minute = _goalDate.Subtract(now).Minutes.ToString("##");
+            var second = _goalDate.Subtract(now).Seconds.ToString("##");
+            lblHour.Text = $"Last:{day} days, {hour}:{minute}:{second}";
+
+
         }
     }
 }
