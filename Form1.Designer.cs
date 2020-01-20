@@ -43,7 +43,7 @@
             this.lblDate.Name = "lblDate";
             this.lblDate.Size = new System.Drawing.Size(270, 27);
             this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "05/07/2020 10:00";
+            this.lblDate.Text = "05/07/2020 10:15";
             // 
             // lblHour
             // 
