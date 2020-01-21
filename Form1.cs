@@ -63,14 +63,24 @@ namespace DgsDayCounter
             var width = Screen.PrimaryScreen.WorkingArea.Width;
             width -= Width;
             Left = width - 150;
-            Top = height-5;
-
+            Top = height;
             Height = 15;
+            Opacity = 0.35;
         }
 
         private void lblHour_DoubleClick(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void Lbl_MouseHover(object sender, EventArgs e)
+        {
+            Opacity = 1;
+        }
+
+        private void Lbl_MouseLeave(object sender, EventArgs e)
+        {
+            Opacity = 0.35;
         }
     }
 }

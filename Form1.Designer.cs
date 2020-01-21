@@ -45,6 +45,8 @@
             this.lblHour.TabIndex = 2;
             this.lblHour.Text = "Last...";
             this.lblHour.DoubleClick += new System.EventHandler(this.lblHour_DoubleClick);
+            this.lblHour.MouseLeave += new System.EventHandler(this.Lbl_MouseLeave);
+            this.lblHour.MouseHover += new System.EventHandler(this.Lbl_MouseHover);
             // 
             // tmr
             // 
