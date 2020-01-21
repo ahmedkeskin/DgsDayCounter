@@ -30,30 +30,21 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.lblDate = new System.Windows.Forms.Label();
             this.lblHour = new System.Windows.Forms.Label();
             this.tmr = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
-            // lblDate
-            // 
-            this.lblDate.BackColor = System.Drawing.Color.Transparent;
-            this.lblDate.Font = new System.Drawing.Font("Verdana", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDate.Location = new System.Drawing.Point(4, 8);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(270, 27);
-            this.lblDate.TabIndex = 0;
-            this.lblDate.Text = "05/07/2020 10:15";
-            // 
             // lblHour
             // 
             this.lblHour.BackColor = System.Drawing.Color.Transparent;
+            this.lblHour.Dock = System.Windows.Forms.DockStyle.Fill;
             this.lblHour.Font = new System.Drawing.Font("Verdana", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblHour.Location = new System.Drawing.Point(8, 35);
+            this.lblHour.Location = new System.Drawing.Point(0, 0);
             this.lblHour.Name = "lblHour";
-            this.lblHour.Size = new System.Drawing.Size(258, 16);
+            this.lblHour.Size = new System.Drawing.Size(168, 13);
             this.lblHour.TabIndex = 2;
-            this.lblHour.Text = "Remain HOUR: 0";
+            this.lblHour.Text = "Last...";
+            this.lblHour.DoubleClick += new System.EventHandler(this.lblHour_DoubleClick);
             // 
             // tmr
             // 
@@ -65,22 +56,20 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(278, 55);
+            this.ClientSize = new System.Drawing.Size(168, 13);
             this.Controls.Add(this.lblHour);
-            this.Controls.Add(this.lblDate);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.Text = "DGS TIME TRACKER";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label lblDate;
         private System.Windows.Forms.Label lblHour;
         private System.Windows.Forms.Timer tmr;
     }

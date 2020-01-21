@@ -12,12 +12,14 @@ namespace DgsDayCounter
 {
     public partial class Form1 : Form
     {
+        private enum TaskBarLocation { TOP, BOTTOM, LEFT, RIGHT }
+
         DateTime _goalDate = new DateTime(2020, 7, 5,10,15,00);
         System.Globalization.CultureInfo _cultureinfo;
         public Form1()
         {
             InitializeComponent();
-            lblDate.Text = _goalDate.ToString("MM/dd/yyyy HH:mm:ss", _cultureinfo);
+            //lblDate.Text = _goalDate.ToString("MM/dd/yyyy HH:mm:ss", _cultureinfo);
             _cultureinfo = new System.Globalization.CultureInfo("tr-TR");
         }
 
@@ -31,6 +33,44 @@ namespace DgsDayCounter
             lblHour.Text = $"Last:{day} days, {hour}:{minute}:{second}";
 
 
+        }
+        
+        private TaskBarLocation GetTaskBarLocation()
+        {
+            TaskBarLocation taskBarLocation = TaskBarLocation.BOTTOM;
+            bool taskBarOnTopOrBottom = (Screen.PrimaryScreen.WorkingArea.Width == Screen.PrimaryScreen.Bounds.Width);
+            if (taskBarOnTopOrBottom)
+            {
+                if (Screen.PrimaryScreen.WorkingArea.Top > 0) taskBarLocation = TaskBarLocation.TOP;
+            }
+            else
+            {
+                if (Screen.PrimaryScreen.WorkingArea.Left > 0)
+                {
+                    taskBarLocation = TaskBarLocation.LEFT;
+                }
+                else
+                {
+                    taskBarLocation = TaskBarLocation.RIGHT;
+                }
+            }
+            return taskBarLocation;
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            var height = Screen.PrimaryScreen.Bounds.Height - Screen.PrimaryScreen.WorkingArea.Height;
+            var width = Screen.PrimaryScreen.WorkingArea.Width;
+            width -= Width;
+            Left = width - 150;
+            Top = height-5;
+
+            Height = 15;
+        }
+
+        private void lblHour_DoubleClick(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }
